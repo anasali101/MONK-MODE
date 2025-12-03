@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Monk Mode OS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+            },
+            colors: {
+              'void': '#000000',
+              'glass': 'rgba(255, 255, 255, 0.05)',
+              'neon-lime': '#ccff00',
+              'neon-blue': '#00f0ff',
+              'neon-purple': '#bf00ff',
+            },
+            padding: {
+              'safe': 'env(safe-area-inset-bottom)',
+            },
+            animation: {
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'breathing': 'breathing 8s ease-in-out infinite',
+              'shimmer': 'shimmer 2s infinite linear',
+              'scanline': 'scanline 3s infinite linear',
+              'plasma': 'plasma 3s linear infinite',
+            },
+            keyframes: {
+              breathing: {
+                '0%, 100%': { transform: 'scale(1)', opacity: '0.3' },
+                '50%': { transform: 'scale(1.2)', opacity: '0.6' },
+              },
+              shimmer: {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(100%)' },
+              },
+              scanline: {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(100%)' },
+              },
+              plasma: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '100%': { backgroundPosition: '100% 50%' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #000000;
+        color: #f4f4f5;
+        overflow-x: hidden;
+      }
+      /* Hide scrollbar for app-like feel */
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+      .no-tap-highlight {
+        -webkit-tap-highlight-color: transparent;
+      }
+      .shake {
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+      }
+      @keyframes shake {
+        10%, 90% { transform: translate3d(-1px, 0, 0); }
+        20%, 80% { transform: translate3d(2px, 0, 0); }
+        30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+        40%, 60% { transform: translate3d(4px, 0, 0); }
+      }
+      
+      /* Cool Plasma Bar Effect */
+      .plasma-bar {
+        background: linear-gradient(90deg, #ccff00, #00f0ff, #bf00ff, #ccff00);
+        background-size: 300% 100%;
+        animation: plasma 2s linear infinite;
+        box-shadow: 0 0 15px rgba(204, 255, 0, 0.5);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
